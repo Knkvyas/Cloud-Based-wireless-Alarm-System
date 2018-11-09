@@ -1,4 +1,4 @@
-# Wireless-Alarm-System
+# Wireless-Alarm-System.
 #  IOT project in which we will build a Security system which can trigger an E-mail when it detects      someone. 
 # This project has blend in the power of ESP8266, PIR sensor and ISD1820 Voice module. 
 # I built a fully functional Security system which can be Armed/Disarmed (Activated/De-activated) remotely via internet. 
