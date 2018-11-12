@@ -1,0 +1,56 @@
+Components we are using :-
+ESP8266 -1
+Arduino uno -2 
+PIR sensor - 1
+ALARM - 2
+Bluetooth module HC-05 - 2
+
+Lets Name Arduino 1st as (Arduino1) and Arduino 2nd as (Arduino2)
+Lets Name ALARM 1st as (ALARM-1) and Arduino 2nd as (ALARM-2)
+
+Cloud which i'm going to use are : IFTTT and Cayenne
+IFTTT and Applet is used to send mail when PIR trigger something(human presence).
+Cayenne Cloud is use to store data in cloud and Later that Data can be download for Visualization and Prediction Analysis.
+
+1) iotproject.ino file code is for esp8266 to connect it with wifi and when it detected something through PIR sensor condition( when it is enable) it will trigger a mail using IFTTT cloud using a mail Applet
+2) The esp8266 D7 pin is set as input pin, taking input from PIR sensor
+3) D8 pin of Esp8266 is set as output pin for ALARM-1.
+4) we are using Arduino1 to provide 5v to PIR sensor as it is not working on 3.3v
+5) the GND and Vcc pin of PIR are connected to Arduino1 and output pin of PIR sensor is connected to Esp8266 D7 pin (which is set as input pin).
+6) Make GND of Esp8266 and Arduino1 common(i.e connec both Gnd with same wire)
+7) Upload code name "iotproject.ino" in esp8266 module 
+	Remember : Select NodeMCU 1.0(ESP-12E module) in Tools->Board 
+		   Select Port Number:COM__(as shown in port)
+8) Upload code
+9) To get the IP address of Esp module, you can check either in Serial Monitor directly or you can download an App from Google play store name "Fing". Connect your mobile to that wifi which you are going to connect your Esp8266 module.
+10) once code is upload check in Fing App, it will display Ip address of Esp8266 module.
+11) using that IP address you will visit to a HTML page 
+12) In this Html Page you need to Enable first to Activate the PIR sensor to sense the environment.
+
+Since our Home Alarm is Ringing if PIR sense something and a Mail is send to inform suspicious activity in house.
+Now we are going to Build an wireless ALARM which will buzz using bluetooth module (Considering that ALARM-2 is in neighbours house).
+
+Now we will use here 2-Arduino and 2-Bluetooth Module for making Wireless ALARM(Buzzer) to ring when Intrusion is detected by PIR sensor.
+
+The HC-05 module is a Bluetooth SPP (Serial Port Protocol) module, which means it communicates with the Arduino via the Serial Communication.
+
+1) We need to make one Bluetooth Module as Master (Transmit data) and other Bluetooth module as slave (Receieve data).
+
+Making Arduino1 as Master and Arduino2 as slave
+Remember : Don’t forget to disconnect the RX and TX lines while uploading Code in Arduino
+Follow this:
+	So the RX pin of the Arduino needs to be connected to the RX pin of the Bluetooth module, and the TX pin of the Arduino to the TX pin of the Bluetooth module. 
+	Now while holding the small button over the “EN” pin we need to power the module and that’s how we will enter the command mode.
+	If the Bluetooth module led is flashing every 2 seconds that means that we have successfully entered in the AT command mode.
+	After this we need to upload an empty sketch to the Arduino but don’t forget to disconnect the RX and TX lines while uploading.
+ 	Then we need to run the Serial Monitor and there select “Both NL and CR”, as well as, “38400 baud” rate which is the default baud rate of the Bluetooth module. 
+  	Now we are ready to send commands and their format is as following.
+
+After Uploading code open serial monitor and type below command
+So for Example:
+ If we type just “AT” which is a test command we should get back the message “OK”. 
+Then if we type “AT+UART?” we should get back the massage that shows the default baud rate which is 38400. 
+Then if we type “AT+ROLE?” we will get back a massage “+ROLE=0” which means that the Bluetooth device is in slave mode.
+ If we type “AT+ADDR?” we will get back the address of the Bluetooth module and it should looks something like this: 98d3:34:905d3f.
+
+Check out Image name Serial Monitor command for Bluetooth module.
