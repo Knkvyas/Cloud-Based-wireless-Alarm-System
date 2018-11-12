@@ -8,9 +8,9 @@
 
 int flag;
 
-char username[] = "dbe3e680-d758-11e8-810f-075d38a26cc9";
-char password[] = "91b6fd64edc8203d1ebd3ca000bc78520ad1c74a";
-char clientID[] = "ecea4840-d7a6-11e8-898f-c12a468aadce";
+char username[] = "**********";//cayenne username
+char password[] = "*********";//cayenne password
+char clientID[] = "*********";//cayenne client ID
 
 
 MDNSResponder mdns;
@@ -21,7 +21,7 @@ boolean power_module = false;
 
 char ssid[] = "halamadrid";  //Enter you Wifi SSID here
  
-char wifiPassword[] = "vitcc123";
+char wifiPassword[] = "vitcc123";//your wifi password
 
  
 
@@ -118,7 +118,7 @@ const int httpsPort = 443;
 
  
 
-  String url = "/trigger/security_alert/with/key/cOPA6pGoejY4FPgPTlCdfNDV2wSMd284Adrtdbxq0YA"; //Must change it to your API URL
+  String url = "/trigger/security_alert/with/key/*************"; //Must change it to your API URL
   Serial.print("requesting URL: ");
   Serial.println(url);
 
