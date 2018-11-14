@@ -1,0 +1,37 @@
+Step to configure bluetooth module
+
+
+For Slave Configuration
+1)During power supply first reset the module before uploading code.
+2) Upload blank code(create new file) in first bluetooth module.
+3) After successful upload in Arduino, Open Serial Monitor and type Below Commands
+	AT (Enter)
+Output- OK
+	AT+ROLE? (Enter)  Tells whether it is Slave(Role-0) or Master(Role-1)
+OUTPUT- if '0' then we need address of slave type AT+ADDR? (Enter)
+		Copy the address in notepad and change those (:) to (,)
+
+
+
+For master Module we need to do
+1) Change role to Master
+2) Change connection mode
+3) Bind to slave module
+
+Repeat from step 1- step3 
+Default Bluetooth moduel is set to slave (ROLE-0)
+we need to make Role - 1
+
+So Type AT+ROLE=1 
+OUTPUT - OK    To conform type AT+ROLE? output - 1 (master is set)
+
+Now to check connection mode 
+AT+CMODE?
+if CMODE :0 (Connected to one)  we want this
+if CMODE :1 (Connected to any)
+
+SO type AT+CMODE=0    
+After this we need to give address to connect to so type AT+BIND=[put address here]
+enter
+To conform AT+BIND?
+
