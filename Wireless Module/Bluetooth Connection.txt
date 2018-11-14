@@ -1,0 +1,17 @@
+For wire configuration 
+Make some changes for Both Modules i.e
+1) Connect Rx of Arduino to Tx of Bluetooth Module
+2) Connect Tx of Arduino to Rx of Bluetooth Module
+
+To check if both of them are connected check the synchronous blink between them.
+
+After this pairing is done, Now to upload original code in module
+1) Connect Rx to Rx and Tx to Tx (Bluetooth moduel to Arduino) 
+2) during power supply press Reset Button of Bluetooth module
+3) Upload Code in Adruino
+4) After Successful Upload 
+	Make some changes for Both Modules i.e
+	i) Connect Rx of Arduino to Tx of Bluetooth Module
+	ii) Connect Tx of Arduino to Rx of Bluetooth Module
+5) Now check the synchronous blink between them.
+6) Bluetooth Modules are connected.
